@@ -34,7 +34,7 @@ export default function handler(
   const dataString = JSON.stringify(data);
   const length = Buffer.byteLength(dataString, 'utf8');
 
-  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate=59');
+  res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Content-Length', length);
   res.status(200).json(data);
 }
