@@ -12,7 +12,9 @@ interface Data {
   word_id: number
 }
 
-export const dynamic = 'static';
+export const config = {
+  runtime: 'edge',
+};
 
 type DataList = Data[]
 
@@ -37,5 +39,6 @@ export default function get(
   const length = Buffer.byteLength(dataString, 'utf8');
 
   res.setHeader('Content-Length', length);
+  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate=59');
   res.status(200).json(data);
 }
