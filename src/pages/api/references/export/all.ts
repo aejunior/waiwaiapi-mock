@@ -14,7 +14,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
-  res.status(200).json([
+  const data = [
     {
       "id": 1,
       "reference": "Robert E. Hawkins. 2021. Wai Wai dictionary. In: Key, Mary Ritchie & Comrie, Bernard (eds.) The Intercontinental Dictionary Series. Leipzig: Max Planck Institute for Evolutionary Anthropology.",
@@ -35,5 +35,11 @@ export default function handler(
       "reference": "Dicionário Uaiuai-Português Robert Hawkins MEVA 2002",
       "url": null
     }
-  ]);
+  ];
+
+  const dataString = JSON.stringify(data);
+  const length = Buffer.byteLength(dataString, 'utf8');
+
+  res.setHeader('Content-Length', length);
+  res.status(200).json(data);
 }

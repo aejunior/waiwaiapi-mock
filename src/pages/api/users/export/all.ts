@@ -12,10 +12,16 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
-  res.status(200).json([
+  const data = [
     {
       "id": 1,
       "full_name": "Admin Admin"
     }
-  ]);
+  ];
+
+  const dataString = JSON.stringify(data);
+  const length = Buffer.byteLength(dataString, 'utf8');
+
+  res.setHeader('Content-Length', length);
+  res.status(200).json(data);
 }

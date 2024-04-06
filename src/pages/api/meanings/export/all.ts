@@ -17,7 +17,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
-  res.status(200).json([
+  const data = [
     {
       "id": 1,
       "meaning": "ao invés dele, no lugar dele, oposto",
@@ -69328,5 +69328,11 @@ export default function handler(
       "reference_id": 3,
       "user_id": 1
     }
-  ]);
+  ]
+  
+  const dataString = JSON.stringify(data);
+  const length = Buffer.byteLength(dataString, 'utf8');
+
+  res.setHeader('Content-Length', length);
+  res.status(200).json(data);
 }

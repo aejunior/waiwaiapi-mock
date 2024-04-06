@@ -13,11 +13,17 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
-  res.status(200).json([
+  const data = [
     {
       "id": 2,
       "category": "Geral",
       "description": "Geralzada"
     }
-  ]);
+  ]
+
+  const dataString = JSON.stringify(data);
+  const length = Buffer.byteLength(dataString, 'utf8');
+
+  res.setHeader('Content-Length', length);
+  res.status(200).json(data);
 }

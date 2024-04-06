@@ -17,7 +17,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
-  res.status(200).json([
+
+  const data = [
     {
       "id": 1,
       "word": "A",
@@ -32954,5 +32955,11 @@ export default function handler(
       "update_at": "2024-02-29T22:50:02.794409Z",
       "user_id": 1
     }
-  ]);
+  ]
+
+  const dataString = JSON.stringify(data);
+  const length = Buffer.byteLength(dataString, 'utf8');
+
+  res.setHeader('Content-Length', length);
+  res.status(200).json(data);
 }
