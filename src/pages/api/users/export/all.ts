@@ -8,7 +8,9 @@ export interface Data {
   full_name: string
 }
 
-export default function handler(
+export const dynamic = 'static';
+
+export default function get(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {

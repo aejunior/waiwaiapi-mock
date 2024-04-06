@@ -12,9 +12,11 @@ interface Data {
   word_id: number
 }
 
+export const dynamic = 'static';
+
 type DataList = Data[]
 
-export default function handler(
+export default function get(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {

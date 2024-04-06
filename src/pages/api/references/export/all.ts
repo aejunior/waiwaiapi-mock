@@ -9,8 +9,10 @@ export interface Data {
   url?: string | null
 }
 
+export const dynamic = 'static';
 
-export default function handler(
+
+export default function get(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {

@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
- type DataList = Data[]
+type DataList = Data[]
 
- interface Data {
+interface Data {
   id: number
   meaning: string
   comment: any
@@ -13,7 +13,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
   user_id: number
 }
 
-export default function handler(
+export const dynamic = 'static';
+
+export default function get(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
@@ -69329,7 +69331,7 @@ export default function handler(
       "user_id": 1
     }
   ]
-  
+
   const dataString = JSON.stringify(data);
   const length = Buffer.byteLength(dataString, 'utf8');
 
