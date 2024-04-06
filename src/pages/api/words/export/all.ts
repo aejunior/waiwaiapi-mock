@@ -12,10 +12,6 @@ export interface Data {
   user_id: number
 }
 
-export const config = {
-  runtime: 'edge',
-};
-
 export default function get(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
@@ -32963,7 +32959,7 @@ export default function get(
   const dataString = JSON.stringify(data);
   const length = Buffer.byteLength(dataString, 'utf8');
 
-  res.setHeader('Content-Length', length);
   res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate=59');
+  res.setHeader('Content-Length', length);
   res.status(200).json(data);
 }

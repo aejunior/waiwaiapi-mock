@@ -12,13 +12,9 @@ interface Data {
   word_id: number
 }
 
-export const config = {
-  runtime: 'edge',
-};
-
 type DataList = Data[]
 
-export default function get(
+export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<DataList>,
 ) {
@@ -38,7 +34,7 @@ export default function get(
   const dataString = JSON.stringify(data);
   const length = Buffer.byteLength(dataString, 'utf8');
 
-  res.setHeader('Content-Length', length);
   res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate=59');
+  res.setHeader('Content-Length', length);
   res.status(200).json(data);
 }
