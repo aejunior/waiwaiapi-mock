@@ -14,11 +14,26 @@ export default function get(
 ) {
   const data = [
     {
-      "id": 2,
+      "id": 1,
       "category": "Geral",
-      "description": "Geralzada"
+      "description": ""
+    },
+    {
+      "id": 2,
+      "category": "Ciências da Saúde",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "category": "Arqueologia",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "category": "Ciências Biológicas",
+      "description": ""
     }
-  ]
+  ];
 
   const dataString = JSON.stringify(data);
   const length = Buffer.byteLength(dataString, 'utf8');
