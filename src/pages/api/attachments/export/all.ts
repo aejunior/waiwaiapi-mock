@@ -11,7 +11,7 @@ interface Data {
   user_id: number
   word_id: number
   created_at: string
-  update_at: string
+  updated_at: string
 }
 
 type DataList = Data[]
@@ -31,7 +31,7 @@ export default function handler(
       "user_id": 1,
       "word_id": 2,
       "created_at": "2024-05-18T14:52:31.588498Z",
-      "update_at": "2024-05-18T14:52:31.588498Z"
+      "updated_at": "2024-05-18T14:52:31.588498Z"
     }
   ];
 
