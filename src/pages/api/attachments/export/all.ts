@@ -10,6 +10,8 @@ interface Data {
   content_type: string
   user_id: number
   word_id: number
+  created_at: string
+  update_at: string
 }
 
 type DataList = Data[]
@@ -27,7 +29,9 @@ export default function handler(
       "url": "/uploads/ec0d58de-aa95-473f-bdfe-f3047f0010fb-gravando.png",
       "content_type": "image/png",
       "user_id": 1,
-      "word_id": 2
+      "word_id": 2,
+      "created_at": "2024-05-18T14:52:31.588498Z",
+      "update_at": "2024-05-18T14:52:31.588498Z"
     }
   ];
 
